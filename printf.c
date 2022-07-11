@@ -13,15 +13,13 @@ int _printf(const char *format, ...)
 	int n;
 	bool flag;
 	int total = 0;
-
 	va_list ap;
-	
+
 	flag = false;
 
 	if (format == NULL)
 		return (0);
 	va_start(ap, format);
-	
 	for (n = 0; *(format + n) != '\0'; n++)
 	{
 		if (format[n] == '%')
@@ -39,7 +37,7 @@ int _printf(const char *format, ...)
 					total += 1;
 					break;
 				case 's':
-					print_string(va_arg(ap, char));
+					print_string(va_arg(ap, char *));
 					total += 1;
 					break;
 				case '%':
