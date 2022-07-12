@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 
+int print_int(int num);
 
 /**
  * print_string - prints string
