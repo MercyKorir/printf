@@ -25,5 +25,6 @@ int _str(va_list);
 int _char(va_list);
 int _perc(va_list);
 int _int(va_list);
+int print_number(va_list ap);
 
 #endif /*MAIN_H*/
