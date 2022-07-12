@@ -21,7 +21,7 @@ int own_pars(const char *format, spec_t func_list[], va_list ap)
 			{
 				if (format[i + 1] == func_list[j].op[0])
 				{
-					val = func_list[j].f(ap);
+					val = func_list[j].func(ap);
 					if (val == -1)
 						return (-1);
 					_charpr += val;
