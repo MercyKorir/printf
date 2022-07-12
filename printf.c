@@ -37,8 +37,7 @@ int _printf(const char *format, ...)
 					total += 1;
 					break;
 				case 's':
-					print_string(va_arg(ap, char *));
-					total += 1;
+					total += print_string(va_arg(ap, char *));
 					break;
 				case '%':
 					_putchar('%');
