@@ -1,12 +1,11 @@
-#include "main.h"
 #include <stdio.h>
+#include "main.h"
 
 /**
- * print_string - prints string
- * @str: string to be printed
- *
- * Return: len
- */
+* print_string - prints string
+* @str: string to be printed
+* Return: len
+*/
 
 int print_string(char *str)
 {
