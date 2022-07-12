@@ -44,8 +44,10 @@ int print_int(int num)
 		count += 1;
 	}
 	if (num > 9)
+	{
 		count += print_int(num / 10);
-	_putchar((num % 10) + '0');
-	count += 1;
+		_putchar((num % 10) + '0');
+		count += 1;
+	}
 	return (count);
 }
