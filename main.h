@@ -17,5 +17,5 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int own_pars(const char *format, spec_t func_list[], va_list ap);
 int print_string(char *str);
-
+int print_number(va_list ap);
 #endif /*MAIN_H*/
