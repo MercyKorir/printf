@@ -4,32 +4,29 @@
 #include <stdbool.h>
 
 /**
-* _printf - produces output according to format
-* @format: first arg
-* Return: total number of characters.
-*/
+ * _printf - produces output acc toformat
+ * @format: pointer
+ *
+ * Return: total number of characters excluding \0
+ */
+
 int _printf(const char *format, ...)
 {
 	int n;
-	bool flag;
 	int total = 0;
+	bool flag = false;
 	va_list ap;
-
-	flag = false;
 
 	if (format == NULL)
 		return (0);
 	va_start(ap, format);
-	for (n = 0; *(format + n) != '\0'; n++)
+	for (n = 0 ; *(format + n) != '\0' ; n++)
 	{
 		if (format[n] == '%')
-		{
 			flag = true;
-		}
 		else if (flag == true)
 		{
 			flag = false;
-
 			switch (format[n])
 			{
 				case 'c':
@@ -43,11 +40,17 @@ int _printf(const char *format, ...)
 					_putchar('%');
 					total += 1;
 					break;
+				case 'd':
+					total += print_int(va_arg(ap, int));
+					break;
+				case 'i':
+					total += print_int(va_arg(ap, int));
+					break;
 				default:
 					_putchar('%');
 					_putchar(format[n]);
 					total += 2;
-			}
+			};
 		}
 		else
 		{
@@ -56,5 +59,6 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(ap);
+
 	return (total);
 }
