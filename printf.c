@@ -40,12 +40,6 @@ int _printf(const char *format, ...)
 					_putchar('%');
 					total += 1;
 					break;
-				case 'd':
-					total += print_int(va_arg(ap, int));
-					break;
-				case 'i':
-					total += print_int(va_arg(ap, int));
-					break;
 				default:
 					_putchar('%');
 					_putchar(format[n]);
