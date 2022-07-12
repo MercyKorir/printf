@@ -30,3 +30,25 @@ int print_number(va_list ap)
 	}
 	return (len);
 }
+
+/**
+* print_unsignint - prints unsigned int
+* @i: unsigned int to be printed
+* Return: total numbers printed
+*/
+int print_unsignint(unsigned int i)
+{
+	int len = 0;
+	int div = 1;
+	unsigned int n = i;
+
+	for (; n / div > 9; )
+		div *= 10;
+	for (; div != 0; )
+	{
+		len += _putchar(48 + n / div);
+		n %= div;
+		div /= 10;
+	}
+	return (len);
+}

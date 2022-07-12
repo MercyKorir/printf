@@ -13,7 +13,13 @@ int _printf(const char *format, ...)
 		{"s", _str},
 		{"%", _perc},
 		{"d", _int},
-		{"i", _int}
+		{"i", _int},
+		{"b", _binary},
+		{"u", _unsignint},
+		{"o", _octal},
+		{"x", _hex},
+		{"X", _upperhex},
+		{NULL, NULL}
 	};
 	va_list ap;
 

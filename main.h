@@ -26,5 +26,13 @@ int _char(va_list);
 int _perc(va_list);
 int _int(va_list);
 int print_number(va_list ap);
+int _binary(va_list ap);
+int _octal(va_list ap);
+int _hex(va_list ap);
+int _upperhex(va_list ap);
+int _hexcheck(int i, char a);
+int print_reversed(va_list ap);
+int rot13(va_list);
+int print_unsignint(unsigned int);
 
 #endif /*MAIN_H*/

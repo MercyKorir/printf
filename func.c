@@ -56,3 +56,20 @@ int _int(va_list ap)
 	len = print_number(ap);
 	return (len);
 }
+
+/**
+* _unsignint - prints unsigned int
+* @ap: arg
+* Return: count
+*/
+int _unsignint(va_list ap)
+{
+	unsigned int n;
+
+	n = va_arg(ap, unsigned int);
+	if (n == 0)
+		return (print_unsignint(n));
+	if (n < 1)
+		return (-1);
+	return (print_unsignint(n)):
+}
