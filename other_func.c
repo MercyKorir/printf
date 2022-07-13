@@ -46,14 +46,14 @@ int _binary(va_list ap)
 * @ap: arg
 * Return: total number printed
 */
-int _octal(va_list list)
+int _octal(va_list ap)
 {
 	int len;
 	unsigned int n;
 	char *reverse_str;
 	char *repres_octal;
 	
-	n = v_arg(ap, unsigned int);
+	n = va_arg(ap, unsigned int);
 	if (n == 0)
 		return (_putchar('0'));
 	if (n < 1)
@@ -91,7 +91,7 @@ int _hex(va_list ap)
 	char *repres_hex;
 	char *reverse_hex;
 
-	num = va_arg(ap, unsigned int);
+	n = va_arg(ap, unsigned int);
 	if (n == 0)
 		return (_putchar(48));
 	if (n < 1)
@@ -102,7 +102,7 @@ int _hex(va_list ap)
 		return (-1);
 	for (len = 0; n > 0; len++)
 	{
-		remainder_n = num % 16;
+		remainder_n = n % 16;
 		if (remainder_n > 9)
 		{
 			remainder_n = hex_check(remainder_n, 'x');
@@ -133,6 +133,7 @@ int _upperhex(va_list ap)
 	unsigned int n;
 	char *repres_hex;
 	char *reverse_hex;
+	int remainder_n;
 	
 	n = va_arg(ap, unsigned int);
 	if (n == 0)
@@ -148,7 +149,7 @@ int _upperhex(va_list ap)
 		remainder_n = n % 16;
 		if (remainder_n > 9)
 		{
-			remainder_num = hex_check(remainder_n, 'X');
+			remainder_n = hex_check(remainder_n, 'X');
 			repres_hex[len] = remainder_n;
 		}
 		else
@@ -174,10 +175,10 @@ int _upperhex(va_list ap)
 int hex_check(int n, char a)
 {
 	char *hex = "abcdef";
-	char _upperhex = "ABCDEF";
+	char *_upperhex = "ABCDEF";
 
 	n = n - 10;
-	if (x == 'x')
+	if (a == 'a')
 		return (hex[n]);
 	else
 		return (_upperhex[n]);

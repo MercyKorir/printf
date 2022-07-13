@@ -6,7 +6,7 @@
 * @func: pointer to struct
 * Return: number of characters
 */
-int _address(va_list ap, flags_t *func)
+int _address(va_list ap, flags_t *t)
 {
 	char *str;
 	unsigned long int m;

@@ -30,7 +30,7 @@ int rot13(va_list ap)
 {
 	int n;
 	int m;
-	char *strva_arg(ap, char *);
+	char *str = va_arg(ap, char *);
 	char _small[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char _upper[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	if (str == NULL)
