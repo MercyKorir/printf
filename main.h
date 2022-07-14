@@ -18,7 +18,7 @@ typedef struct buffer_s
 	char *buffer;
 	char *start;
 	unsigned int len;
-}buffer_t;
+} buffer_t;
 
 /**
  * struct converter_s - type def for coverter struct
@@ -30,7 +30,7 @@ typedef struct converter_s
 {
 	unsigned char spec;
 	unsigned int (*func)(va_list, buffer_t *);
-}converter_t;
+} converter_t;
 
 /*specifier fn*/
 unsigned int _char(va_list ap, buffer_t *output);
