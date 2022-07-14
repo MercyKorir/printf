@@ -1,57 +1,54 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <limits.h>
 #include <stdarg.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 /**
-* stuct spec - define structure
-* @op: operator
-* @func: function
-*/
-struct spec
+ * struct buffer_s - type def buffer struct
+ * @buffer: char array pointer
+ * @start: start buffer pointer
+ * @len: length
+ */
+
+typedef struct buffer_s
 {
-	char *op;
-	int (*func)(va_list);
-};
-typedef struct spec spec_t;
+	char *buffer;
+	char *start;
+	unsigned int len;
+}buffer_t;
 
 /**
- * struct flags - type def flag struct
- * @flag:char rep flag
- * @val: int valof flag
+ * struct converter_s - type def for coverter struct
+ * @spec: conv spec char
+ * @func: pointer to conv fn
  */
-typedef struct flags
-{
-	unsigned char flag;
-	unsigned char value;
-}flags_t;
 
+typedef struct converter_s
+{
+	unsigned char spec;
+	unsigned int (*func)(va_list, buffer_t *);
+}converter_t;
+
+/*specifier fn*/
+unsigned int _char(va_list ap, buffer_t *output);
+unsigned int _string(va_list ap, buffer_t *output);
+unsigned int _perc(va_list ap, buffer_t *output);
+
+/* handler */
+unsigned int (*_specifiers(const char *spec))(va_list, buffer_t *);
+
+
+/* modifier */
+
+
+/* helper fn */
+buffer_t *init_buffer(void);
+void free_buffer(buffer_t *output);
+unsigned int _memcpy(buffer_t *output, const char *src, unsigned int n);
 
 int _printf(const char *format, ...);
-int _putchar(char c);
-int own_pars(const char *format, spec_t func_list[], va_list ap);
-int _str(va_list);
-int _char(va_list);
-int _perc(va_list);
-int _int(va_list);
-int print_number(va_list ap);
-int _binary(va_list ap);
-int _octal(va_list ap);
-int _hex(va_list ap);
-int _upperhex(va_list ap);
-int hex_check(int n, char a);
-int print_reversed(va_list ap);
-int rot13(va_list);
-int _unsignint(va_list);
-int print_unsignint(unsigned int);
 
-/*Helper*/
-unsigned int length_base(unsigned int,int);
-char *reverse_func(char *str);
-void _basewrite(char *s);
-char *_memcpy(char *dest, char *src, unsigned int num);
-
-#endif /*MAIN_H*/
+#endif
