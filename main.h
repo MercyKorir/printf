@@ -69,6 +69,14 @@ unsigned int _int(va_list ap, buffer_t *output, unsigned char flags,
 		int width, int precision, unsigned char len);
 unsigned int _bin(va_list ap, buffer_t *output, unsigned char flag,
 		int width, int precision, unsigned char len);
+unsigned int _dec(va_list ap, buffer_t *output, unsigned char flag,
+		int width, int precision, unsigned char len);
+unsigned int _oct(va_list ap, buffer_t *output, unsigned char flag,
+		int width, int precision, unsigned char len);
+unsigned int lower_hex(va_list ap, buffer_t *output, unsigned char flag,
+		int width, int precision, unsigned char len);
+unsigned int upper_hex(va_list ap, buffer_t *output, unsigned char flag,
+		int width, int precision, unsigned char len);
 
 /* handler */
 unsigned char _flag(const char *flag, char *i);
