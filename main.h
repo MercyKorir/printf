@@ -57,18 +57,18 @@ typedef struct flag_s
 typedef struct converter_s
 {
 	unsigned char spec;
-	unsigned int (*func)(va_list, buffer_t *);
+	unsigned int (*func)(va_list, buffer_t *, unsigned char);
 } converter_t;
 
 /*specifier fn*/
-unsigned int _char(va_list ap, buffer_t *output);
-unsigned int _string(va_list ap, buffer_t *output);
-unsigned int _perc(va_list ap, buffer_t *output);
-unsigned int _int(va_list ap, buffer_t *output, unsigned char flag);
+unsigned int _char(va_list ap, buffer_t *output,unsigned char __attribute__((unused)) flag);
+unsigned int _string(va_list ap, buffer_t *output, unsigned char __attribute__((unused)) flag);
+unsigned int _perc(va_list ap, buffer_t *output, unsigned char __attribute__((unused)) flag);
+unsigned int _int(va_list ap, buffer_t *output, unsigned char flags);
 
 /* handler */
 unsigned char _flag(const char *flag, char *i);
-unsigned int (*_specifiers(const char *specif))(va_list, buffer_t *, unsigned char);
+unsigned int (*_specifiers(const char *spec))(va_list, buffer_t *, unsigned char);
 
 
 /* modifier */

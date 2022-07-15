@@ -1,19 +1,20 @@
 #include "main.h"
 
-unsigned int _char(va_list ap, buffer_t *output);
-unsigned int _perc(va_list ap, buffer_t *output);
-unsigned int _string(va_list ap, buffer_t *output);
+unsigned int _char(va_list ap, buffer_t *output, unsigned char __attribute__((unused)) flag);
+unsigned int _perc(va_list ap, buffer_t *output, unsigned char __attribute__((unused)) flag);
+unsigned int _string(va_list ap, buffer_t *output, unsigned char __attribute__((unused)) flag);
 unsigned int _int (va_list ap, buffer_t *output, unsigned char flag);
 
 /**
  * _char - converts tounsigned char and stores in buffer
  * @ap: arg
  * @output: struct
+ * @flag: flag
  *
  * Return: no.of bytes stored in buffer
  */
 
-unsigned int _char(va_list ap, buffer_t *output)
+unsigned int _char(va_list ap, buffer_t *output, unsigned char __attribute__((unused)) flag)
 {
 	char c;
 	unsigned int ret = 0;
@@ -28,11 +29,11 @@ unsigned int _char(va_list ap, buffer_t *output)
  * _perc - stored % to buffer
  * @ap: arg
  * @output: struct
- *
+ * @flag: flag
  * Return: no . of bytes stored tobuffer
  */
 
-unsigned int _perc(va_list ap, buffer_t *output)
+unsigned int _perc(va_list ap, buffer_t *output, unsigned char __attribute__((unused)) flag)
 {
 	char percent = '%';
 	unsigned int ret = 0;
@@ -48,11 +49,12 @@ unsigned int _perc(va_list ap, buffer_t *output)
  * _string - convertes arg to string and stores in buffer
  * @ap: arg
  * @output: buffer struct
+ * @flag: flag
  *
  * Return: no. ofbytes
  */
 
-unsigned int _string(va_list ap, buffer_t *output)
+unsigned int _string(va_list ap, buffer_t *output, unsigned char __attribute__((unused)) flag)
 {
 	char *str;
 	char *null = "(null)";
@@ -77,6 +79,7 @@ unsigned int _string(va_list ap, buffer_t *output)
  * _int - converts to signed int and stores in buffer
  * @ap: arg
  * @output: struct
+ * @flag: flag
  *
  * Return: bytes stored
  */
