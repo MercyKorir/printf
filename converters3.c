@@ -47,6 +47,52 @@ unsigned int _r(va_list ap, buffer_t *output, unsigned char flag,
 	return (ret);
 }
 
+/**
+ * _R - string to rot13 and stores
+ * @output: struct
+ * @ap: arg
+ * @flag: flag
+ * @width: width
+ * @precision: prec
+ * @len: length
+ *
+ * Return: noofbytes stored
+ */
+
+unsigned int _R(va_list ap, buffer_t *output, unsigned char flag,
+		int width, int precision, unsigned char len)
+{
+	char *a = "abcdefghijklmnopqrstuuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	char *str, *null = "(null)";
+	int i, k, size;
+	unsigned int ret = 0;
+
+	(void)flag;
+	(void)len;
+	str = va_arg(ap, char *);
+	if (str ==  NULL)
+		return (_memcpy(output, null, 6));
+	for (size = 0; *(size + str); )
+		size++;
+	ret += string_width(output, flag, width, precision, size);
+	precision = (precision == -1) ? size : precision;
+	for (i = 0; *(str + i) != '\0' && i < precision; i++)
+	{
+		for (k = 0; k < 52; k++)
+		{
+			if (*(str + i) == *(a + k))
+			{
+				ret += _memcpy(output, (rot13 + k), 1);
+				break;
+			}
+		}
+		if (k == 52)
+			ret += _memcpy(output, (str + i), 1);
+	}
+	ret += neg_width(output, ret, flag, width);
+	return (ret);
+}
 
 /**
  * _p - conv arg to hex and stores to buffer

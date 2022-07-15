@@ -161,6 +161,8 @@ unsigned int (*_specifiers(const char *spec))(va_list, buffer_t *,
 		{'X', upper_hex},
 		{'S', _S},
 		{'p', _p},
+		{'r', _r},
+		{'R', _R},
 		{0, NULL}
 	};
 
