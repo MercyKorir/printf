@@ -20,7 +20,7 @@ unsigned int upper_hex(va_list ap, buffer_t *output, unsigned char flag,
  *
  * Return: no of bytes stored to buffer
  */
-                                                                                                                                       
+
 unsigned int _dec(va_list ap, buffer_t *output, unsigned char flag,
 		int width, int precision, unsigned char len)
 {
@@ -137,5 +137,5 @@ unsigned int upper_hex(va_list ap, buffer_t *output, unsigned char flag,
 		ret += _ubase(output, num, "0123456789ABCDEF", flag,
 				width, precision);
 	ret += neg_width(output, ret, flag, width);
-	return(ret);
+	return (ret);
 }
