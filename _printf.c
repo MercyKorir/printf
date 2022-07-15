@@ -30,19 +30,21 @@ int run(const char *format, va_list ap, buffer_t *output)
 {
 	int i, ret  = 0;
 	char temp;
-	unsigned int (*f)(va_list, buffer_t *);
+	unsigned char flags;
+	unsigned int (*f)(va_list, buffer_t *, unsigned char);
 
 	for (i = 0 ; *(format + i) ; i++)
 	{
 		if (*(format + i) == '%')
 		{
 			temp = 0;
+			flags = _flag(format + i + 1, &temp);
 			f = _specifiers(format + i + temp + 1);
 
 			if (f != NULL)
 			{
 				i += temp + 1;
-				ret += f(ap, output);
+				ret += f(ap, output, flags);
 				continue;
 			}
 			else if (*(format + i + temp + 1) == '\0')

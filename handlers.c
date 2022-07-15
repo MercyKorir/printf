@@ -1,6 +1,6 @@
 #include "main.h"
 
-unsigned int (*_specifiers(const char *spec))(va_list, buffer_t *);
+unsigned int (*_specifiers(const char *specif))(va_list, buffer_t *, unsigned char);
 unsigned char _flag(const char *flag, char *i);
 
 /**
@@ -52,7 +52,7 @@ unsigned char _flag(const char *flag, char *i)
  * Return: pointer to fn or NULL
  */
 
-unsigned int (*_specifiers(const char *spec))(va_list, buffer_t *, unsigned char)
+unsigned int (*_specifiers(const char *specif))(va_list, buffer_t *, unsigned char)
 {
 	int i;
 	converter_t conv[] = {
@@ -66,7 +66,7 @@ unsigned int (*_specifiers(const char *spec))(va_list, buffer_t *, unsigned char
 
 	for (i = 0 ; conv[i].func ; i++)
 	{
-		if (conv[i].spec == *spec)
+		if (conv[i].spec == *specif)
 			return (conv[i].func);
 	}
 	return (NULL);

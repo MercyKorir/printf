@@ -3,7 +3,7 @@
 unsigned int _char(va_list ap, buffer_t *output);
 unsigned int _perc(va_list ap, buffer_t *output);
 unsigned int _string(va_list ap, buffer_t *output);
-unsigned int _int (va_list ap, buffer_t *output, unsigned char len);
+unsigned int _int (va_list ap, buffer_t *output, unsigned char flag);
 
 /**
  * _char - converts tounsigned char and stores in buffer
@@ -81,7 +81,7 @@ unsigned int _string(va_list ap, buffer_t *output)
  * Return: bytes stored
  */
 
-unsigned int _int(va_list ap, buffer_t *output, unsigned char len)
+unsigned int _int(va_list ap, buffer_t *output, unsigned char flag)
 {
 	long int d;
 	unsigned int ret = 0;
@@ -91,13 +91,8 @@ unsigned int _int(va_list ap, buffer_t *output, unsigned char len)
 	char plus = '+';
 
 
-	if (len == LONG)
-		d = va_arg(ap, long int);
-	else
-		d = va_arg(ap, int);
-	if (len == SHORT)
-		d = (short)d;
-
+	d = va_arg(ap, int);
+	
 	/* space flag */
 	if (SPACE_FLAG == 1 && d >= 0)
 		ret += _memcpy(output, &space, 1);
