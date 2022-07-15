@@ -2,6 +2,37 @@
 
 unsigned int _S(va_list ap, buffer_t *output, unsigned char flag,
 		int width, int precision, unsigned char len);
+unsigned int _p(va_list ap, buffer_t *output, unsigned char flag,
+		int width, int precision, unsigned char len);
+
+/**
+ * _p - conv arg to hex and stores to buffer
+ * @output: struct
+ * @ap: arg
+ * @flag: flag
+ * @width: width
+ * @precision: precision
+ * @len: length
+ *
+ * Return: no of bytes stored
+ */
+
+unsigned int _p(va_list ap, buffer_t *output, unsigned char flag,
+		int width, int precision, unsigned char len)
+{
+	char *null = "(nil)";
+	unsigned long int addr;
+	unsigned int ret = 0;
+
+	(void)len;
+	addr = va_arg(ap, unsigned long int);
+	if (addr == '\0')
+		return (_memcpy(output, null, 5));
+	flag |= 32;
+	ret += _ubase(output, addr, "0123456789abcdef", flag, width, precision);
+	ret += neg_width(output, ret, flag, width);
+	return (ret);
+}
 
 /**
  * _S - convarg to str then stores to buffer

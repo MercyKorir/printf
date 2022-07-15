@@ -160,6 +160,7 @@ unsigned int (*_specifiers(const char *spec))(va_list, buffer_t *,
 		{'x', lower_hex},
 		{'X', upper_hex},
 		{'S', _S},
+		{'p', _p},
 		{0, NULL}
 	};
 

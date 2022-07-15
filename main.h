@@ -79,6 +79,8 @@ unsigned int upper_hex(va_list ap, buffer_t *output, unsigned char flag,
 		int width, int precision, unsigned char len);
 unsigned int _S(va_list ap, buffer_t *output, unsigned char flag,
 		int width, int precision, unsigned char len);
+unsigned int _p(va_list ap, buffer_t *output, unsigned char flag,
+		int width, int precision, unsigned char len);
 
 /* handler */
 unsigned char _flag(const char *flag, char *i);
