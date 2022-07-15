@@ -61,6 +61,10 @@ unsigned int (*_specifiers(const char *spec))(va_list, buffer_t *, unsigned char
 		{'%', _perc},
 		{'d', _int},
 		{'i', _int},
+		{'u', _dec},
+		{'o', _oct},
+		{'x', lower_hex},
+		{'X', upper_hex},
 		{0, NULL}
 	};
 
