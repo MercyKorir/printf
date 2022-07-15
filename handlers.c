@@ -71,7 +71,7 @@ int _precision(va_list ap, const char *modifier, char *i)
 		return (-1);
 	modifier++;
 	(*i)++;
-	if ((*modifier <= '0' || *modifier >= '9') &&
+	if ((*modifier <= '0' || *modifier > '9') &&
 			*modifier != '*')
 	{
 		if (*modifier == '0')
