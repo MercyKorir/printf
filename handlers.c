@@ -1,8 +1,100 @@
 #include "main.h"
 
-unsigned int (*_specifiers(const char *spec))(va_list, buffer_t *, unsigned char);
+unsigned int (*_specifiers(const char *spec))(va_list, buffer_t *,
+		unsigned char, int, int, unsigned char);
 unsigned char _flag(const char *flag, char *i);
+unsigned char _length(const char *modifier, char *i);
+int _width(va_list ap, const char *modifier, char *i);
+int _precision(va_list ap, const char *modifier, char *i);
 
+/**
+* _length - matches length mod with corr value
+* @modifier: pointer
+* @i: index counter
+* Return: corr value or 0
+*/
+unsigned char _length(const char *modifier, char *i)
+{
+	if (*modifier == 'h')
+	{
+		(*i)++;
+		return (SHORT);
+	}
+	else if (*modifier == 'l')
+	{
+		(*i)++;
+		return (LONG);
+	}
+	return (0);
+}
+
+/**
+* _width - matches width mod with corr value
+* @ap: arg
+* @modifier: pointer
+* @i: index counter
+* Return: value or 0
+*/
+int _width(va_list ap, const char *modifier, char *i)
+{
+	int val = 0;
+
+	while ((*modifier >= '0' && *modifier <= '9') || (*modifier == '*'))
+	{
+		(*i)++;
+		if (*modifier == '*')
+		{
+			val = va_arg(ap, int);
+			if (val <= 0)
+				return (0);
+			return (val);
+		}
+		val *= 10;
+		val += (*modifier - '0');
+		modifier++;
+	}
+	return (val);
+}
+
+/**
+* _precision - matches prec mod with corr val
+* @ap: arg
+* @modifier: pointer
+* @i: index counter
+* Return: value or 0
+*/
+int _precision(va_list ap, const char *modifier, char *i)
+{
+	int val = 0;
+
+	if (*modifier != '.')
+		return (-1);
+	modifier++;
+	(*i)++;
+	if ((*modifier <= '0' || *modifier >= '9') &&
+			*modifier != '*')
+	{
+		if (*modifier == '0')
+			(*i)++;
+		return (0);
+	}
+	while ((*modifier >= '0' && *modifier <= '9') ||
+			(*modifier == '*'))
+	{
+		(*i)++;
+		if (*modifier == '*')
+		{
+			val = va_arg(ap, int);
+			if (val <= 0)
+				return (0);
+			return (val);
+		}
+		val *= 10;
+		val += (*modifier - '0');
+		modifier++;
+	}
+	return (val);
+}
 /**
  * _flag - match flag with corresponding val
  * @flag: pointer
@@ -52,7 +144,8 @@ unsigned char _flag(const char *flag, char *i)
  * Return: pointer to fn or NULL
  */
 
-unsigned int (*_specifiers(const char *spec))(va_list, buffer_t *, unsigned char)
+unsigned int (*_specifiers(const char *spec))(va_list, buffer_t *,
+		unsigned char, int, int, unsigned char)
 {
 	int i;
 	converter_t conv[] = {

@@ -28,23 +28,28 @@ void clean(va_list ap, buffer_t *output)
 
 int run(const char *format, va_list ap, buffer_t *output)
 {
-	int i, ret  = 0;
+	int i, ret  = 0, width, precision;
 	char temp;
-	unsigned char flags;
-	unsigned int (*f)(va_list, buffer_t *, unsigned char);
+	unsigned char flags, len;
+	unsigned int (*f)(va_list, buffer_t *,
+			unsigned char, int, int, unsigned char);
 
 	for (i = 0 ; *(format + i) ; i++)
 	{
+		len = 0;
 		if (*(format + i) == '%')
 		{
 			temp = 0;
 			flags = _flag(format + i + 1, &temp);
+			width = _width(ap, format + i + temp + 1, &temp);
+			precision = _precision(ap, format + i + temp + 1, &temp);
+			len = _length(format + i + temp + 1, &temp);
 			f = _specifiers(format + i + temp + 1);
 
 			if (f != NULL)
 			{
 				i += temp + 1;
-				ret += f(ap, output, flags);
+				ret += f(ap, output, flags, width, precision, len);
 				continue;
 			}
 			else if (*(format + i + temp + 1) == '\0')
