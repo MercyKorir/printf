@@ -62,7 +62,7 @@ unsigned int _r(va_list ap, buffer_t *output, unsigned char flag,
 unsigned int _R(va_list ap, buffer_t *output, unsigned char flag,
 		int width, int precision, unsigned char len)
 {
-	char *a = "abcdefghijklmnopqrstuuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char *a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 	char *str, *null = "(null)";
 	int i, k, size;
