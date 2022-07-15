@@ -67,6 +67,8 @@ unsigned int _perc(va_list ap, buffer_t *output, unsigned char flag,
 		int width, int precision, unsigned char len);
 unsigned int _int(va_list ap, buffer_t *output, unsigned char flags,
 		int width, int precision, unsigned char len);
+unsigned int _bin(va_list ap, buffer_t *output, unsigned char flag,
+		int width, int precision, unsigned char len);
 
 /* handler */
 unsigned char _flag(const char *flag, char *i);
@@ -91,6 +93,8 @@ void free_buffer(buffer_t *output);
 unsigned int _memcpy(buffer_t *output, const char *src, unsigned int n);
 unsigned int _sbase(buffer_t *output, long int num, char *base,
 		 unsigned char flag, int width, int precision);
+unsigned int _ubase(buffer_t *output, unsigned long int num, char *base,
+		unsigned char flag, int width, int precision);
 
 int _printf(const char *format, ...);
 

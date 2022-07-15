@@ -154,6 +154,7 @@ unsigned int (*_specifiers(const char *spec))(va_list, buffer_t *,
 		{'%', _perc},
 		{'d', _int},
 		{'i', _int},
+		{'b', _bin},
 		{0, NULL}
 	};
 

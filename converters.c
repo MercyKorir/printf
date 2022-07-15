@@ -8,6 +8,8 @@ unsigned int _string(va_list ap, buffer_t *output, unsigned char flag,
 		 int width, int precision, unsigned char len);
 unsigned int _int (va_list ap, buffer_t *output, unsigned char flag,
 		 int width, int precision, unsigned char len);
+unsigned int _bin(va_list ap, buffer_t *output, unsigned char flag,
+		int width, int precision, unsigned char len);
 
 /**
  * _char - converts tounsigned char and stores in buffer
@@ -159,4 +161,23 @@ unsigned int _int(va_list ap, buffer_t *output, unsigned char flag,
 		ret += _sbase(output, d, "0123456789", flag, 0, precision);
 	ret += neg_width(output, ret, flag, width);
 	return (ret);
+}
+
+/**
+* _bin - converts unsigned int to binary
+* @ap: arg
+* @flag: flag
+* @width: width
+* @precision: prec
+* @len: length
+* @output: struct
+* Return: no of bytes stored
+*/
+unsigned int _bin(va_list ap, buffer_t *output, unsigned char flag,
+		int width, int precision, unsigned char len)
+{
+	unsigned int num = va_arg(ap, unsigned int);
+
+	(void)len;
+	return (_ubase(output, num, "01", flag, width, precision));
 }
