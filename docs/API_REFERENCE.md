@@ -740,20 +740,4 @@ Base conversion functions (`_sbase`, `_ubase`) use recursion. Maximum depth:
 
 ---
 
-## Thread Safety
-
-**Warning:** This implementation is **not thread-safe**.
-
-Issues:
-- Global or shared buffer states
-- No mutex protection
-- Race conditions possible in multi-threaded programs
-
-For thread-safe operation:
-- Use separate `_printf` calls per thread
-- Implement mutex locking (not included)
-- Consider thread-local storage for buffers
-
----
-
 **[⬆ Back to Top](#api-reference---custom-printf)**

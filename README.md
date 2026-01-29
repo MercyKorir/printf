@@ -315,7 +315,7 @@ _printf("%ld\n", 123456789L);    // Long int
 _printf("%hd\n", (short)42);     // Short int
 ```
 
-## 📚 Documentation
+## Documentation
 
 Comprehensive documentation is available in the `docs/` directory:
 
@@ -337,7 +337,7 @@ Each module has dedicated documentation:
 - **[converters2_c.md](docs/converters2_c.md)** - Numeric format specifiers
 - **[converters3_c.md](docs/converters3_c.md)** - Custom format specifiers
 
-## 🧪 Testing
+## Testing
 
 ### Running the Test Suite
 
@@ -387,7 +387,7 @@ int main(void)
 }
 ```
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please follow these guidelines:
 
@@ -440,7 +440,7 @@ Contributions are welcome! Please follow these guidelines:
 - Ensure no memory leaks (verify with Valgrind)
 - Code must compile without warnings using all flags
 
-## 📄 License
+## License
 
 This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE) file for details.
 
@@ -460,23 +460,15 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Inspired by the C standard library `printf` implementation
 - Educational project for learning systems programming
 - Built with guidance from ALX Software Engineering program (if applicable)
 
-## 📞 Support
+## Support
 
 For questions, issues, or suggestions:
 
 - **Issue Tracker**: [GitHub Issues](https://github.com/MercyKorir/printf/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/MercyKorir/printf/discussions)
-
-## 🔄 Version History
-
-### v1.0.0 (Current)
-- Initial release
-- Full printf implementation
-- Comprehensive test suite
-- Complete documentation

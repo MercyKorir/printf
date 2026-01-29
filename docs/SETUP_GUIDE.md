@@ -1,10 +1,10 @@
-# Printf Project - Complete Setup Guide for WSL Ubuntu
+# Printf Project
 
-This guide provides step-by-step instructions to compile and run your custom printf implementation on WSL Ubuntu.
+This guide provides step-by-step instructions to compile and run your custom printf implementation on Ubuntu/WSL Ubuntu.
 
 ## Project Files
 
-Your project contains these source files:
+The project contains these source files:
 - `main.h` - Header with all declarations
 - `_printf.c` - Main printf implementation
 - `helpers.c` - Buffer management
@@ -359,7 +359,7 @@ rm -f printf_test test_compare perf_test *.o *.a
 
 ## Success Checklist
 
-- [ ] WSL Ubuntu installed and updated
+- [ ] Ubuntu installed and updated
 - [ ] `build-essential` package installed
 - [ ] All source files present in project directory
 - [ ] `main.c` test file created
@@ -389,4 +389,4 @@ valgrind --leak-check=full ./printf_test
 rm printf_test *.o
 ```
 
-Happy coding! 🚀
+Happy coding!
