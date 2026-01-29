@@ -428,7 +428,7 @@ Contributions are welcome! Please follow these guidelines:
 
 ### Code Style Guidelines
 
-- Follow the **Betty** coding style (if applicable)
+- Follow the **Betty** coding style
 - Use meaningful variable and function names
 - Add comments for complex logic
 - Keep functions focused and concise
@@ -464,7 +464,7 @@ limitations under the License.
 
 - Inspired by the C standard library `printf` implementation
 - Educational project for learning systems programming
-- Built with guidance from ALX Software Engineering program (if applicable)
+- Built with guidance from ALX Software Engineering program
 
 ## Support
 
